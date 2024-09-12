@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Document</title>
+	</head>
+	<body>
+		<form
+			action=""
+			onsubmit=""
+		>
+			<label for="amount">Amount</label>
+			<input
+				type="number"
+				name="currency"
+				id="amount"
+				placeholder="Nhập khoản tiền"
+			/>
+			<label for="from"
+				><select
+					name="from"
+					id="to"
+				>
+					<option value="">VND</option>
+					<option value="">USD</option>
+				</select></label
+			>
+		</form>
+		<script src="">
+			function currencyConverter() {
+				const amount = document.getElementById("amount").value;
+				let from = document.getElementById("from").value;
+			}
+		</script>
+	</body>
+</html>
