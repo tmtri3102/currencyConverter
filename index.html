@@ -6,34 +6,63 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0"
 		/>
-		<title>Document</title>
+		<title>Trí</title>
 	</head>
 	<body>
-		<form
-			action=""
-			onsubmit=""
-		>
-			<label for="amount">Amount</label>
+		<form>
 			<input
 				type="number"
-				name="currency"
 				id="amount"
-				placeholder="Nhập khoản tiền"
+				placeholder="Amount"
 			/>
-			<label for="from"
-				><select
-					name="from"
-					id="to"
-				>
-					<option value="">VND</option>
-					<option value="">USD</option>
-				</select></label
-			>
+			<select id="from">
+				<option value="25000">VND</option>
+				<option value="1">USD</option>
+			</select>
+
+			<select id="to">
+				<option value="25000">VND</option>
+				<option value="1">USD</option>
+			</select>
+			<!-- <select id="conversion">
+				<option value="vnd-to-usd">VND -> USD</option>
+				<option value="usd-to-vnd">USD -> VND</option>
+			</select> -->
+
+			<button onclick="convertMoney()">Convert</button>
 		</form>
-		<script src="">
-			function currencyConverter() {
-				const amount = document.getElementById("amount").value;
-				let from = document.getElementById("from").value;
+
+		<br />
+		<p id="result"></p>
+		<script>
+			function convertMoney() {
+				event.preventDefault();
+				let amount = +document.getElementById("amount").value;
+				let from = +document.getElementById("from").value;
+				let to = +document.getElementById("to").value;
+				let exchange_rate = from / to;
+				let result = amount * exchange_rate;
+				// let conversion = document.getElementById("conversion").value;
+				// if (conversion == "VND -> USD") {
+				// 	let vndToUsd = amount / 25000;
+				// 	result = `Result: ${vndToUsd} USD`;
+				// } else if (conversion == "USD -> VND") {
+				// 	let usdToVnd = amount * 25000;
+				// 	result = `Result: ${usdToVnd} VND`;
+				// } else {
+				// 	result = `Invalid amount`;
+				// }
+				// if (FromC == "USD" && To == "VND") {
+				// 	Result = "Result: " + Amount * 23000 + " Đ";
+				// } else if (FromC == "VND" && To == "USD") {
+				// 	Result = "Result: " + Amount / 23000 + " $";
+				// } else if (FromC == "VND") {
+				// 	Result = "Result: " + Amount + " Đ";
+				// } else {
+				// 	Result = "Result: " + Amount + " $";
+				// }
+				// console.log(result);
+				document.getElementById("result").innerText = result;
 			}
 		</script>
 	</body>
